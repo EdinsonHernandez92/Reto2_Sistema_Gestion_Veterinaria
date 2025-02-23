@@ -14,7 +14,16 @@ class Persona(ABC):
 
 # Clase base abstracta para representar a una mascota registrada en la veterinaria - Edinson
 class Mascota(ABC): 
-    pass
+    def __init__(self, nombre, especie, raza, edad):
+        self.nombre = nombre
+        self.especie = especie
+        self.raza = raza
+        self.edad = edad
+        self.historial_citas = [] # Lista para almacenar citas médicas
+
+    @abstractmethod
+    def agregar_al_historial(self, detalles_servicio):
+        pass
 
 # Clase base abstracta para representar una cita médica para una mascota - Felipe
 class Cita(ABC):
@@ -22,7 +31,15 @@ class Cita(ABC):
 
 # Clase concreta que representa a un cliente de la veterinaria - Edinson
 class Cliente(Persona):
-    pass
+    def __init__(self, nombre, contacto, direccion):
+        super().__init__(nombre, contacto, direccion)
+        self.mascotas = []
+
+    def agregar_mascota(self, mascota):
+        self.mascotas.append(mascota)
+
+    def mostrar_informacion(self):
+        return f"Cliente: {self.nombre}, Contacto: {self.contacto}, Dirección: {self.direccion}"
 
 # Clase concreta para el registro de una mascota en el sistema - Felipe
 class RegistroMascota(Mascota):
