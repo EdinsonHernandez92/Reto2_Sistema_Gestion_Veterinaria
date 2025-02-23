@@ -2,8 +2,15 @@ from abc import ABC, abstractmethod
 from datetime import datetime
 
 # Clase base abstracta para representar a una persona (cliente de la veterinaria) - Felipe
-class Persona(ABC): 
-    pass
+class Persona(ABC):  
+    def __init__(self, nombre, contacto, direccion):
+        self.nombre = nombre
+        self.contacto = contacto
+        self.direccion = direccion
+
+    @abstractmethod
+    def mostrar_informacion(self):
+        pass
 
 # Clase base abstracta para representar a una mascota registrada en la veterinaria - Edinson
 class Mascota(ABC): 
