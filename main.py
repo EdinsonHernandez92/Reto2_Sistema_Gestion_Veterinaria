@@ -87,6 +87,7 @@ class SistemaVeterinaria:
             print(f"Error: {e}")
 
     # Función para eliminar clientes
+    def eliminar_cliente(self):
         try:
             nombre_cliente = input("Ingrese el nombre del cliente a eliminar: ").strip()
             cliente = next((c for c in self.clientes if c.nombre == nombre_cliente), None)
